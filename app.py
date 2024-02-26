@@ -31,7 +31,7 @@ model_type = st.selectbox(
 )
 
 # Text area for defining the task
-task_description = st.text_area('Title/key content', placeholder='examples: How Each Personality Type Deals with Rejection | What Your Bedroom Looks Like, Based on Your Personality Type | Where Your Next Vacation Should Be, Based on Your Enneagram Type',
+task_description = st.text_area('Title/key content', placeholder='examples: How Each Type Deals with Rejection | What Your Bedroom Looks Like, Based on Your Type | Where Your Next Vacation Should Be, Based on Your Type',
                                 key='task_description',max_chars=200)
 
 # Submit button
