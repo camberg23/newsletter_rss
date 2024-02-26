@@ -5,11 +5,13 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 generate_content = """
-Your job is to help provide a human writer with key bullet points about how easy personality type in the {MODEL} personality framework would/should characteristically do {X}, based on your knowledge of each type.
+Your job is to help provide a human writer with key bullet points about how EACH personality type in the {MODEL} personality framework would/should characteristically do a given thing, based on your knowledge of each type.
 
-Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is a bullet or two about how each type would/should characteristically do {X}.
+Here is the specific content you should generate: {X}
 
-Again, a human is going to take your outputs as an outline/reference for writing a polished blog piece on how each {MODEL} type does {X}, so you don't need to output polished text yourself, just make sure the core ideas and key raw content is there. It does not have to be pretty!
+Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is a bullet or two about how each type would/should characteristically do the relevant thing described above.
+
+Again, a human is going to take your outputs as an outline/reference for writing a polished blog piece on how each {MODEL} type does the thing, so you don't need to output polished text yourself, just make sure the core ideas and key raw content is there. It does not have to be pretty!
 
 Formatting requirements: make sure you immediately output the specified content, no preface or conclusion, and make sure it is in markdown for easy formatting.
 
@@ -27,7 +29,8 @@ model_type = st.selectbox(
 )
 
 # Text area for defining the task
-task_description = st.text_area('Define X',key='task_description',max_chars=200)
+task_description = st.text_area('Title/key content', placeholder='examples: How Each Personality Type Deals with Rejection | What Your Bedroom Looks Like, Based on Your Personality Type | Where Your Next Vacation Should Be, Based on Your Enneagram Type',
+                                key='task_description',max_chars=200)
 
 # Submit button
 if st.button('Submit'):
