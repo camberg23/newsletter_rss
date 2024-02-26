@@ -27,14 +27,7 @@ model_type = st.selectbox(
 )
 
 # Text area for defining the task
-task_description = st.text_area(
-    'Define X',
-    'Enter a phrase or task',
-    key='task_description',
-    max_chars=200
-)
-
-user_blog_content = st.text_area("Paste your blog content here:", height=300)
+task_description = st.text_area('Define X',key='task_description',max_chars=200)
 
 # Submit button
 if st.button('Submit'):
