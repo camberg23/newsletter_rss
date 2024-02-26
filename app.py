@@ -36,17 +36,18 @@ if st.button('Submit'):
     elif not task_description.strip():
         st.error('Please define the task.')
     else:
-        chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
-        chat_chain = LLMChain(prompt=PromptTemplate.from_template(generate_content), llm=chat_model)
-        generated_output = chat_chain.run(MODEL=model_type, X=task_description)
-        
-        # Display the LLM output using markdown
-        st.markdown(generated_output)
-        
-        # Use Streamlit's download button to download the output
-        st.download_button(
-            label="Download Output",
-            data=generated_output,
-            file_name="personality_insights.txt",
-            mime="text/plain"
-        )
+        with st.spinner('Generating, standby...'):
+            chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
+            chat_chain = LLMChain(prompt=PromptTemplate.from_template(generate_content), llm=chat_model)
+            generated_output = chat_chain.run(MODEL=model_type, X=task_description)
+            
+            # Display the LLM output using markdown
+            st.write(generated_output)
+            
+            # Use Streamlit's download button to download the output
+            st.download_button(
+                label="Download Output",
+                data=generated_output,
+                file_name="personality_insights.txt",
+                mime="text/plain"
+            )
