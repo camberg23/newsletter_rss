@@ -9,7 +9,9 @@ Your job is to help provide a human writer with key bullet points about how EACH
 
 Here is the specific content you should generate: {X}
 
-Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is a bullet or two about how each type would/should characteristically do the relevant thing described above.
+Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is as much information as is appropriate (in bullet form) about how each type would/should characteristically do the relevant thing described above.
+
+It should be as rich information as possible/appropriate for each type.
 
 Again, a human is going to take your outputs as an outline/reference for writing a polished blog piece on how each {MODEL} type does the thing, so you don't need to output polished text yourself, just make sure the core ideas and key raw content is there. It does not have to be pretty!
 
