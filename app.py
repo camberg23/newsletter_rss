@@ -7,9 +7,13 @@ from langchain.chains import LLMChain
 generate_content = """
 Your job is to help provide a human writer with key bullet points about how EACH personality type in the {MODEL} personality framework would/should characteristically do a given thing, based on your knowledge of each type.
 
+(If the framework is Myers-Briggs and you plan to label or name any of the types, please use the following names only: INFP: The Healer, INTJ: The Mastermind, INFJ: The Counselor, INTP: The Architect, ENFP: The Champion, ENTJ: The Commander, ENTP: The Visionary, ENFJ: The Teacher, ISFJ: The Protector, ISFP: The Composer, ISTJ: The Inspector, ISTP: The Craftsperson, ESFJ: The Provider, ESFP: The Performer, ESTJ: The Supervisor, ESTP: The Dynamo)
+
 Here is the specific content you should generate: {X}
 
 Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is as much information as is appropriate (in bullet form) about how each type would/should characteristically do the relevant thing described above.
+
+Do NOT repeat content across types; each assignment should be unique to that type!
 
 It should be as rich information as possible/appropriate for each type.
 
