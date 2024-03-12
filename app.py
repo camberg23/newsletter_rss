@@ -5,26 +5,24 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 generate_content = """
-Your job is to help provide a human writer with key bullet points about how EACH personality type in the {MODEL} personality framework would/should characteristically do a given thing, based on your knowledge of each type.
+Your job is to help provide a human writer with key bullet points that capture personality types in the {MODEL} personality framework for all of the major characters from a given TV show/movie/book/etc based on your knowledge of each type.
 
-(If the framework is Myers-Briggs and you plan to label or name any of the types, please use the following names only: INFP: The Healer, INTJ: The Mastermind, INFJ: The Counselor, INTP: The Architect, ENFP: The Champion, ENTJ: The Commander, ENTP: The Visionary, ENFJ: The Teacher, ISFJ: The Protector, ISFP: The Composer, ISTJ: The Inspector, ISTP: The Craftsperson, ESFJ: The Provider, ESFP: The Performer, ESTJ: The Supervisor, ESTP: The Dynamo)
+(If the framework is Myers-Briggs and you plan to label or name any of the types, please use the following names only. Note you don't have to do this, but if you do use the names in addition to the types, use these names: INFP: The Healer, INTJ: The Mastermind, INFJ: The Counselor, INTP: The Architect, ENFP: The Champion, ENTJ: The Commander, ENTP: The Visionary, ENFJ: The Teacher, ISFJ: The Protector, ISFP: The Composer, ISTJ: The Inspector, ISTP: The Craftsperson, ESFJ: The Provider, ESFP: The Performer, ESTJ: The Supervisor, ESTP: The Dynamo)
 
-Here is the specific content you should generate: {X}
+Here is the specific character universe for which you should generate the appropriate personality types: {X}
 
-Your output should include EACH of the types that exists in the {MODEL} personality framework, where each type is a header and there is as much information as is appropriate (in bullet form) about how each type would/should characteristically do the relevant thing described above.
+Your job is to output ALL of the key characters related to the above universe and their type assignment as headers, and the rich justification for and evidence related to assigning that character to that type as bullets below that header.
 
-Do NOT repeat content across types; each assignment should be unique to that type!
-
-It should be as rich information as possible/appropriate for each type.
+It should be as rich information as possible/appropriate for each character, using specific details or actions from the story to justify your type assignment.
 
 Again, a human is going to take your outputs as an outline/reference for writing a polished blog piece on how each {MODEL} type does the thing, so you don't need to output polished text yourself, just make sure the core ideas and key raw content is there. It does not have to be pretty!
 
-Formatting requirements: make sure you immediately output the specified content, no preface or conclusion, and make sure it is in markdown for easy formatting.
+Formatting requirements: make sure you immediately output the specified content, no preface or conclusion, and make sure it is in Markdown for easy formatting.
 
 YOUR OUTPUTS:
 """
 
-st.title('How do you X, by personality type')
+st.title('Get character personalities from any movie/TV show')
 
 # Dropdown for selecting the personality model with no option selected by default
 model_type = st.selectbox(
@@ -35,8 +33,8 @@ model_type = st.selectbox(
 )
 
 # Text area for defining the task
-task_description = st.text_area('Title/key content', placeholder='examples: How Each Type Deals with Rejection | What Your Bedroom Looks Like, Based on Your Type | Where Your Next Vacation Should Be, Based on Your Type',
-                                key='task_description',max_chars=200)
+task_description = st.text_area('Enter TV show/movie here, with any additional context', placeholder='Gilmore Girls | all major Harry Potter characters | protagonists from major Disney movies | etc.',
+                                key='task_description',max_chars=400)
 
 # Submit button
 if st.button('Submit'):
@@ -57,6 +55,6 @@ if st.button('Submit'):
             st.download_button(
                 label="Download Output",
                 data=generated_output,
-                file_name="personality_insights.txt",
+                file_name="personality_characters.txt",
                 mime="text/plain"
             )
