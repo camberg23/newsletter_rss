@@ -33,7 +33,7 @@ model_type = st.selectbox(
 )
 
 # Text area for defining the task
-task_description = st.text_area('Enter TV show/movie here, with any additional context', placeholder='Gilmore Girls | all major Harry Potter characters | protagonists from major Disney movies | etc.',
+task_description = st.text_area('Enter TV show/movie here, with any additional context', placeholder='Gilmore Girls, top 10 characters | all major Harry Potter characters | protagonists from major Disney movies | etc.',
                                 key='task_description',max_chars=400)
 
 # Submit button
