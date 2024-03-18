@@ -15,7 +15,7 @@ Here is the specific character universe for which you should generate the approp
 
 Your job is to output ALL of the key characters related to the above universe and their type assignment as headers, and the rich justification for and evidence related to assigning that character to that type as bullets below that header.
 
-It should be as rich information as possible/appropriate for each character, using specific details or actions from the story to justify your type assignment.
+It should be as rich information as possible/appropriate for each character, using specific details or actions from the story to justify your type assignment. It is okay to have duplicate types (give the best and most honest type assignment possible), but be mindful at the same time not to output, eg, 10 characters of the same type (this wouldn't make for a great article!). Strike the balance, but prioritize accurately nailing the types.
 
 Again, a human is going to take your outputs as an outline/reference for writing a polished blog piece on how each {MODEL} type does the thing, so you don't need to output polished text yourself, just make sure the core ideas and key raw content is there. It does not have to be pretty!
 
