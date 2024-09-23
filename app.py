@@ -79,5 +79,5 @@ rss_feed = '''
 '''
 
 # Serve the RSS feed as XML
-st.set_option('deprecation.showfileUploaderEncoding', False)
+# st.set_option('deprecation.showfileUploaderEncoding', False)
 st.markdown(f"```xml\n{rss_feed}\n```")
